@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Sheets Database</title>
+  </head>
+  <body>
+    <h1>Enter Your Details</h1>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br />
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="tel" id="mobileNumber" name="mobileNumber" required /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      const form = document.getElementById("myForm");
+      form.addEventListener("submit", submitForm);
+
+      async function submitForm(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const responseData = await sendData(formData);
+        alert(responseData);
+        form.reset();
+      }
+
+      async function sendData(formData) {
+        const url =
+          "https://script.google.com/macros/s/AKfycbzW1lBhcOcJhFGMwO1ATFVek4JagWcP8IrnP4f0SyrJcKNgcG58UUG2wqk7SEbgoCA/exec"; // Replace with the web app URL you got from deploying the script
+        const options = {
+          method: "POST",
+          body: formData,
+        };
+
+        const response = await fetch(url, options);
+        return response.text();
+      }
+    </script>
+  </body>
+</html>

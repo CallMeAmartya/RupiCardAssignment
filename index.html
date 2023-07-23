@@ -2,15 +2,33 @@
 <html>
   <head>
     <title>Google Sheets Database</title>
+    <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
     <h1>Enter Your Details</h1>
     <form id="myForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required /><br />
-      <label for="mobileNumber">Mobile Number:</label>
-      <input type="tel" id="mobileNumber" name="mobileNumber" required /><br />
-      <input type="submit" value="Submit" />
+      <div class="container">
+        <div class="name-field">
+          <label for="name">Name:</label>
+          <input
+            class="name-input"
+            type="text"
+            id="name"
+            name="name"
+            required
+          /><br />
+        </div>
+        <div class="mobile-field">
+          <label for="mobileNumber">Mobile Number:</label>
+          <input
+            type="tel"
+            id="mobileNumber"
+            name="mobileNumber"
+            required
+          /><br />
+        </div>
+        <input class="submit-btn" type="submit" value="Submit" />
+      </div>
     </form>
 
     <script>
